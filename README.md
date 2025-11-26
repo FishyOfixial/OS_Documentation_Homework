@@ -1,16 +1,18 @@
 # Documentación Personal de Comandos en Terminal (Linux + Git)
-## Nombre: Iván Ramos de la Torre 
-## Matricula: 5072837
+## Autor: Iván Ramos de la Torre  
+## Matrícula: 5072837  
 ## Universidad: Universidad Autónoma de Guadalajara
 
-A continuación presento cada comando con **entrada y salida realista simulada**, como si estuviera usándolo directamente en la terminal.
+---
+
+Este documento reúne los comandos esenciales de Linux y Git que utilizo en mis proyectos, junto con ejemplos simples y salidas simuladas. Su objetivo es servirme como una guía rápida y práctica mientras trabajo en la terminal y refuerzo mis habilidades como desarrollador.
 
 ---
 
-## 1. Navegación y sistema
+# 🗂️ 1. Navegación y Sistema
 
-### **pwd**
-Muestra la ruta completa del directorio donde estoy.
+## **pwd**
+Muestra la ruta completa del directorio actual.
 
 **Entrada:**
 ```
@@ -18,28 +20,28 @@ pwd
 ```
 **Salida:**
 ```
-/home/usuario/proyectos
+/home/ivan/dev/projects
 ```
 
 ---
-### **cd**
-Sirve para moverme entre carpetas.
+
+## **cd**
+Permite moverme entre directorios.
 
 **Entrada:**
 ```
-pwd
-/home/usuario/proyectos/carpeta1
-cd ..
+cd documentos
 pwd
 ```
 **Salida:**
 ```
-/home/usuario/proyectos
+/home/ivan/documentos
 ```
 
 ---
-### **ls**
-Lista archivos y carpetas.
+
+## **ls**
+Lista archivos y carpetas del directorio actual.
 
 **Entrada:**
 ```
@@ -47,21 +49,17 @@ ls
 ```
 **Salida:**
 ```
-archivo.txt  tareas  matematicas.md
+reportes  notas.md  imagenes  proyecto.py
 ```
 
 ---
-### **clear**
-Limpia la pantalla.
 
-**Entrada:**
-```
-clear
-```
-**Salida:** *(la terminal se limpia)*
+## **clear**
+Limpia la terminal.
 
 ---
-### **whoami**
+
+## **whoami**
 Muestra el usuario actual.
 
 **Entrada:**
@@ -70,80 +68,84 @@ whoami
 ```
 **Salida:**
 ```
-nombre del usuario
+ivan
 ```
 
 ---
 
-## 2. Creación, lectura y búsqueda de archivos
+# 📄 2. Creación, Lectura y Búsqueda de Archivos
 
-### **echo**
-Imprime texto o lo manda a un archivo.
+## **echo**
+Imprime texto o lo escribe en un archivo.
 
 **Entrada:**
 ```
-echo "Mi compañero es de bajo intelecto"
+echo "Este semestre voy a sacar puro 10"
 ```
 **Salida:**
 ```
-Mi compañero es de bajo intelecto
+Este semestre voy a sacar puro 10
 ```
 
 ---
-### **nano**
-Abre el editor de texto.
+
+## **nano**
+Abre un editor en la terminal.
 
 **Entrada:**
 ```
-nano notas.txt
+nano tareas.txt
 ```
-**Salida:** *(se abre la interfaz de nano, para modificación de archivo)*
 
 ---
-### **touch**
+
+## **touch**
 Crea un archivo vacío.
 
 **Entrada:**
 ```
-touch nuevo.txt
+touch practica1.txt
 ls
 ```
 **Salida:**
 ```
-archivo.txt  carpeta2  nuevo.txt  notas.md
+practica1.txt  notas.md  codigo  proyectos
 ```
 
 ---
-### **cat**
-Muestra contenido de un archivo.
+
+## **cat**
+Muestra el contenido de archivos.
 
 **Entrada:**
 ```
-cat notas.txt
+cat tareas.txt
 ```
 **Salida:**
 ```
-Recordatorio:
-- Hacer el proyecto de OS
-- Hacer el proyecto de Redes II
+Tareas pendientes:
+- Terminar laboratorio de Linux
+- Avanzar proyecto de Django
 ```
 
 ---
-### **grep**
-Busca coincidencias dentro de texto.
+
+## **grep**
+Busca texto dentro de un archivo.
 
 **Entrada:**
 ```
-grep "error" log.txt
+grep "warning" build.log
 ```
 **Salida:**
 ```
-13: error: archivo no encontrado
-42: fatal error: permiso denegado
+line 22: warning: unused variable ‘x’
+line 89: warning: deprecated function
 ```
 
 ---
-### **tree**
+
+## **tree**
 Muestra estructura de carpetas.
 
 **Entrada:**
@@ -153,152 +155,134 @@ tree
 **Salida:**
 ```
 .
-├── carpeta1
-│   └── datos.txt
-├── carpeta2
-└── notas.md
+├── src
+│   └── main.py
+├── docs
+│   └── readme.md
+└── tests
 ```
 
 ---
 
-## 3. Manipulación de archivos y permisos
+# 🛠️ 3. Manipulación de Archivos y Permisos
 
-### **mkdir**
+## **mkdir**
 Crea un directorio.
 
 **Entrada:**
 ```
-mkdir proyecto_redes
+mkdir backend
 ls
 ```
 **Salida:**
 ```
-archivo.txt  carpeta1  carpeta2  proyecto_redes  notas.md
+backend  src  docs  notes.md
 ```
 
 ---
-### **mv**
+
+## **mv**
 Mueve o renombra archivos.
 
 **Entrada:**
 ```
-mv archivo.txt carpeta2/
-ls carpeta2
+mv notas.md docs/
+ls docs
 ```
 **Salida:**
 ```
-archivo.txt
+readme.md  notas.md
 ```
 
 ---
-### **rm**
+
+## **rm**
 Elimina archivos.
 
 **Entrada:**
 ```
-rm nuevo.txt
-ls
-```
-**Salida:**
-```
-archivo.txt  carpeta1  carpeta2  notas.md
+rm practica1.txt
 ```
 
 ---
-### **chmod**
-Cambia permisos.
+
+## **chmod**
+Cambia permisos de archivos.
 
 **Entrada:**
 ```
-chmod +x script.sh
-ls -l script.sh
+chmod 755 deploy.sh
+ls -l deploy.sh
 ```
 **Salida:**
 ```
--rwxr-xr-x 1 usuario usuario 120 feb  2 12:00 script.sh
+-rwxr-xr-x 1 ivan ivan 98 feb 15 14:22 deploy.sh
 ```
 
 ---
-### **./** (ejecutar archivo)
+
+## **./ archivo**
+Ejecuta un archivo.
 
 **Entrada:**
 ```
-./script.sh
+./deploy.sh
 ```
 **Salida:**
 ```
-Script ejecutado correctamente
+Despliegue completado exitosamente.
 ```
 
 ---
 
-## 4. Administración del sistema
+# ⚙️ 4. Administración del Sistema
 
-### **sudo**
+## **sudo**
 Ejecuta comandos como administrador.
 
 **Entrada:**
 ```
-sudo nano /etc/hosts
+sudo systemctl restart apache2
 ```
-**Salida:**
-```
-[sudo] password for usuario:
-```
-(luego abre nano)
 
 ---
-### **apt install**
+
+## **apt install**
 Instala paquetes.
 
 **Entrada:**
 ```
-sudo apt install git
+sudo apt install neofetch
 ```
 **Salida:**
 ```
-Leyendo lista de paquetes... Hecho
-Construyendo árbol de dependencias
-Leyendo la información de estado... Hecho
-Se instalarán los siguientes paquetes nuevos:
-  git
-Descargando: 64% [##########........]
-Instalando...
+Descargando paquetes...
+Instalación completa.
 ```
 
 ---
-### **apt update**
-Actualiza lista de paquetes.
+
+## **apt update**
+Actualiza repositorios.
 
 **Entrada:**
 ```
 sudo apt update
 ```
-**Salida:**
-```
-Obteniendo:1 http://archive.ubuntu.com stable InRelease
-Obteniendo:2 http://archive.ubuntu.com stable/main amd64 Packages
-Leyendo lista de paquetes... Hecho
-```
 
 ---
-### **apt upgrade**
-Actualiza los paquetes instalados.
+
+## **apt upgrade**
+Actualiza paquetes instalados.
 
 **Entrada:**
 ```
 sudo apt upgrade
 ```
-**Salida:**
-```
-Calculando actualización... Hecho
-Se actualizarán 5 paquetes.
-Descargando: 57% [######........]
-Instalando actualizaciones...
-```
 
 ---
-### **ps**
+
+## **ps**
 Muestra procesos activos.
 
 **Entrada:**
@@ -307,62 +291,49 @@ ps
 ```
 **Salida:**
 ```
-  PID TTY          TIME CMD
- 2134 pts/0    00:00:00 bash
- 2457 pts/0    00:00:01 python3
- 2601 pts/0    00:00:00 ps
+PID   TTY   TIME   CMD
+1432  pts/0 00:00  bash
+1901  pts/0 00:03  python3
+2015  pts/0 00:00  ps
 ```
 
 ---
-### **kill**
-Termina procesos.
+
+## **kill**
+Termina un proceso.
 
 **Entrada:**
 ```
-kill 2457
-ps
-```
-**Salida:**
-```
-  PID TTY          TIME CMD
- 2134 pts/0    00:00:00 bash
- 2601 pts/0    00:00:00 ps
+kill 1901
 ```
 
 ---
-### **man**
-Abre el manual de un comando.
+
+## **man**
+Abre manuales de comandos.
 
 **Entrada:**
 ```
-man ls
+man mv
 ```
-**Salida:** *(se abre el manual)*
 
 ---
 
-## 5. Comandos de Git
+# 🔧 5. Comandos de Git
 
-### git config --global user.name
-Configura el nombre de usuario global que Git usará en los commits.
+## **git config**
+Configura nombre y correo global.
 
 **Entrada:**
 ```
-git config --global user.name "Mi Nombre"
+git config --global user.name "Ivan Ramos"
+git config --global user.email "ivan@example.com"
 ```
 
 ---
-### git config --global user.email
-Configura el correo global que Git usará en los commits.
 
-**Entrada:**
-```
-git config --global user.email "correo@example.com"
-```
-
----
-### git init
-Crea un repositorio Git vacío en la carpeta actual (inicializa el control de versiones).
+## **git init**
+Inicializa un repositorio.
 
 **Entrada:**
 ```
@@ -370,12 +341,13 @@ git init
 ```
 **Salida:**
 ```
-Initialized empty Git repository in /home/usuario/proyecto/.git/
+Initialized empty Git repository in /home/ivan/dev/.git/
 ```
 
 ---
-### git add
-Añade archivos al área de "staging" para prepararlos antes del commit.
+
+## **git add**
+Envía archivos al área de staging.
 
 **Entrada:**
 ```
@@ -383,66 +355,50 @@ git add .
 ```
 
 ---
-### git commit -m "mensaje"
-Crea un commit (registro) con los cambios que están en staging, usando el mensaje indicado.
+
+## **git commit**
+Guarda cambios en el historial.
 
 **Entrada:**
 ```
-git commit -m "Primer commit"
+git commit -m "Inicializando proyecto"
 ```
 **Salida:**
 ```
-[main 3a5f9c1] Primer commit
- 1 file changed, 3 insertions(+)
+[main 4b7a1d2] Inicializando proyecto
+ 2 files changed, 15 insertions(+)
 ```
 
 ---
-### git push
-Envía tus commits locales al repositorio remoto configurado (por ejemplo, origin).
+
+## **git push**
+Sube commits al repositorio remoto.
 
 **Entrada:**
 ```
-git push
+git push origin main
 ```
 **Salida:**
 ```
-Enumerating objects: 3, done.
-Counting objects: 100% (3/3), done.
-Writing objects: 100% (3/3), done.
-Pushed to origin
+Pushed to origin/main
 ```
 
 ---
-### git push -u origin main
-Sube la rama local al remoto y configura el seguimiento entre la rama local y la rama remota.
 
-**Entrada:**
-```
-git push -u origin main
-```
-**Salida:**
-```
-Branch 'main' set up to track remote branch 'main' from 'origin'.
-```
-
----
-### git pull
-Descarga cambios desde el remoto y los fusiona automáticamente en la rama actual (fetch + merge o fast-forward).
+## **git pull**
+Descarga cambios del remoto.
 
 **Entrada:**
 ```
 git pull
 ```
-**Salida:**
-```
-Updating 3a5f9c1..9bd4e21
-Fast-forward
- archivo.txt | 2 ++
-```
 
 ---
 
-## Conclusión
-He simulado entradas y salidas de los comandos incluidos en mi documentación, cuidando que sean ejemplos realistas y prácticos para un entorno Ubuntu. Empecé con comandos de navegación y manipulación de archivos (pwd, cd, ls, mkdir, mv, rm), pasé por gestión de permisos y ejecución (chmod, ./), administración del sistema (sudo, apt) y finalmente las operaciones básicas de Git para control de versiones (configurar usuario, init, add, commit, push, pull).
+# ✅ Conclusión  
+Esta recopilación me permite consultar de manera sencilla los comandos más usados en Linux y Git, facilitando mi trabajo diario y ayudándome a mejorar mi dominio de la terminal. Seguiré ampliando este documento conforme avance en mi aprendizaje.
 
-Este documento sirve como mi "recorrido personal" en la terminal: puedo usarlo como referencia rápida mientras practico y lo puedo expandir con más ejemplos, errores comunes o notas personales cuando lo necesite.
+---
+
+**Autor:** Iván Ramos de la Torre  
+**Año:** 2025
